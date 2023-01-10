@@ -15,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 @Getter
@@ -34,6 +36,14 @@ public class UserService {
         //아이디 중복 확인
         if(found.isPresent()) {
             throw new IllegalArgumentException("중복된 username입니다.");
+        }
+        //형식 확인
+        Pattern passPattern1 = Pattern.compile("^[a-z]+[0-9]+$");
+        Pattern passPattern2 = Pattern.compile("^[a-zA-Z]+[0-9]+$");
+        Matcher passMatcher1 = passPattern1.matcher(username);
+        Matcher passMatcher2 = passPattern2.matcher(password);
+        if(!passMatcher1.find() || !passMatcher2.find()) {
+            throw new IllegalArgumentException("아이디 혹은 비밀번호의 형식이 맞지 않습니다.");
         }
         //사용자 Role 확인
         UserRoleEnum role = UserRoleEnum.USER;

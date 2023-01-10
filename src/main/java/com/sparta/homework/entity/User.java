@@ -1,5 +1,6 @@
 package com.sparta.homework.entity;
 
+import com.sparta.homework.dto.ResponseDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,7 +22,7 @@ public class User {
     @Column(nullable = false)
     @NotNull(message = "username은 필수 값입니다.")
     @Size(min =4, max=10)
-    @Pattern(regexp = "^[a-z]+[0-9]+$")
+    @Pattern(regexp = "^[a-z]+[0-9]+$" )
     String username;
 
 

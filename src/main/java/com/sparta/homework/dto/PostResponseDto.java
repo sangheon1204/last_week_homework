@@ -15,6 +15,7 @@ public class PostResponseDto {
     private String title;
     private String content;
     private String username;
+    private int likes;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private List<CommentResponseDto> commentList = new ArrayList<>();
@@ -24,6 +25,7 @@ public class PostResponseDto {
         title = post.getTitle();
         content = post.getContent();
         username = post.getUsername();
+        likes = post.getLikes();
         createdAt = post.getCreatedAt();
         modifiedAt = post.getModifiedAt();
         commentList = commentResponseDtos;
@@ -33,6 +35,7 @@ public class PostResponseDto {
         title = post.getTitle();
         content = post.getContent();
         username = post.getUsername();
+        likes = post.getLikes();
         createdAt = post.getCreatedAt();
         modifiedAt = post.getModifiedAt();
     }

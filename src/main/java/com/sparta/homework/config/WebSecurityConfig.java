@@ -47,6 +47,7 @@ public class WebSecurityConfig {
 
         //인증 인가 없이 접속할 url 설정
         http.authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/get-posts/**").permitAll()
                 .anyRequest().authenticated()  //나머지는 인증 인가
                  // JWT 인증/인가를 사용하기 위한 설정
                 .and().addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);

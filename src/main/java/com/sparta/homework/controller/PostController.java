@@ -22,12 +22,12 @@ public class PostController {
         return postService.createPost(requestDto, userDetails.getUser());
     }
 
-    @GetMapping ("/posts")
+    @GetMapping ("/get-posts")
     public PostResponseDtoList getPosts(){
         return postService.getPosts();
     }
 
-    @GetMapping("/posts/{id}")
+    @GetMapping("/get-posts/{id}")
     public PostResponseDto getPostsById(@PathVariable Long id) {
         return postService.getPostsById(id);
     }

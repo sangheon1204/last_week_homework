@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class CommentResponseDto {
     private Long id;
     private String content;
+    private int likes;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private String username;
@@ -19,5 +20,6 @@ public class CommentResponseDto {
         this.createdAt = comment.getCreatedAt();
         this.modifiedAt = comment.getModifiedAt();
         this.username = comment.getPost().getUsername();
+        this.likes = comment.getLikes();
     }
 }

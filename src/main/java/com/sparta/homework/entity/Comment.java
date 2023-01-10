@@ -17,6 +17,9 @@ public class Comment extends Timestamped{
     @Column(nullable = false)
     private String content;
 
+    @Column
+    private int likes;
+
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "post_id")
     private Post post;
